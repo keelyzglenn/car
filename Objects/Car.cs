@@ -6,13 +6,15 @@ namespace Cars.Objects
   {
     private string _make;
     private string _model;
+    private int _price;
 
     private static List<Car> _instances = new List<Car> {};
 
-    public Car (string make, string model)
+    public Car (string make, string model, int price)
     {
       _make = make;
       _model = model;
+      _price = price;
     }
 // car
     public string GetMake()
@@ -32,6 +34,15 @@ namespace Cars.Objects
     public void SetModel(string newModel)
     {
       _model = newModel;
+    }
+// price
+    public int GetPrice()
+    {
+      return _price;
+    }
+    public void SetPrice(int newPrice)
+    {
+      _price = newPrice;
     }
 
 // instances

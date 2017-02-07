@@ -23,7 +23,8 @@ namespace Cars
       Post["/car_added"] = _ => {
         string make = Request.Form["new-make"];
         string model = Request.Form["new-model"];
-        Car newCar = new Car(make, model);
+        int price = Request.Form["new-price"];
+        Car newCar = new Car(make, model, price);
         newCar.Save();
         return View["car_added.cshtml", newCar];
       };

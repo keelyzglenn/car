@@ -1,4 +1,11 @@
 <h1>Cars</h1>
 <ul>
-  <li>@Model.GetModel()</li>
+  @foreach(string car in Model)
+  {
+    <li>@car</li>
+  }
 </ul>
+<p><a href="/">Add another car</a></p>
+<form action="/cars_cleared" method="post">
+  <button type="submit" name="button">Clear all cars</button>
+</form>

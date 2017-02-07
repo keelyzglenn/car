@@ -4,18 +4,33 @@ namespace Cars.Objects
 {
   public class Car
   {
-    private string _model;
-    public Car (string model)
+    private string _car;
+    private static List<string> _instances = new List<string> {};
+
+    public Car (string car)
     {
-      _model = model;
+      _car = car;
+
     }
-    public string GetModel()
+    public string GetCar()
     {
-      return _model;
+      return _car;
     }
-    public void SetModel(string newModel)
+    public void SetCar(string newCar)
     {
-      _model = newModel;
+      _car = newCar;
+    }
+    public static List<string> GetAll()
+    {
+      return _instances;
+    }
+    public void Save()
+    {
+      _instances.Add(_car);
+    }
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
   }
 }

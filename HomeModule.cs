@@ -10,8 +10,19 @@ namespace Cars
     {
       Get["/"] = _ => View["add_new_car.cshtml"];
       Get["/view_all_cars"] = _ => {
-        Car newCar = new Car (Request.Query["new-model"]);
-        return View["view_all_cars.cshtml", newCar];
+        List<string> allCars = Car.GetAll();
+        return View["view_all_cars.cshtml", allCars];
+      };
+
+      Post["/cars_cleared"] = _ => {
+        Car.ClearAll();
+        return View["cars_cleared.cshtml"];
+      };
+
+      Post["/car_added"] = _ => {
+        Car newCar = new Car (Request.Form["new-car"]);
+        newCar.Save();
+        return View["car_added.cshtml", newCar];
       };
     }
   }
